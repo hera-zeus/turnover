@@ -7,9 +7,6 @@
         <field name="arch" type="xml">
         <form string="Rapport Chiffre d'affaire">
         	<group name='main_group'>
-        		<!--<group name='sub_group1' attrs="{'invisible':[('inventory_printed','=',True)]}">
-        			<field name="inventory_date"/>
-        		</group>-->
         		<group name='sub_group2' attrs="{'invisible':[('inventory_printed','=',False)]}">
         			<field name="file_name" invisible="1"/>
 	                <field name="stock_report_file" readonly="1" filename="file_name"/>
