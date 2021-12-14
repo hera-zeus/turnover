@@ -9,16 +9,18 @@
 ##############################################################################
 {
     'name': 'Turnover Report ',
-    'version': '0.1',
+    "version": "11.0.1.0.0",
     'category': 'Warehouse',
-    'summary': 'Turnover Report XLS',
+    "summary": "Allows you to have the turnover of your company in excel and pdf file",
     'license':'AGPL-3',
     'description': """
-    Back Dated Stock Take Report allows to print stock position corresponding to a specific date in the past.
+    this module allows you to have the turnover of your company in excel and pdf file
 """,
     'author' : 'Merveille ZEBAZE',
-    'website' : 'http://merveillezebaze.pythonanywhere.com/',
+    'website' : 'http://merveillezebaze.pythonanywhere.com',
     'depends': ['stock'],
+    "maintainers": ["Merveille ZEBAZE"],
+    "license": "AGPL-3",
     'data': [
         'wizard/print_turnover_report_view.xml',
         'wizard/print_turnover_pdf.xml',
