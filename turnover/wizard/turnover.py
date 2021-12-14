@@ -16,6 +16,7 @@ from math import ceil, floor
 import itertools
 from operator import itemgetter
 import operator
+from odoo.exceptions import UserError
 
 class TurnoverReport(models.TransientModel):
     _name = "turnover.report"
@@ -26,7 +27,7 @@ class TurnoverReport(models.TransientModel):
     file_name = fields.Char('File Name')
     inventory_printed = fields.Boolean('Payment Report Printed')
 
-    @api.multi
+    
     def get_lines(self):
 
         ctx = dict(self.env.context) or {}
@@ -46,7 +47,7 @@ class TurnoverReport(models.TransientModel):
         lines = [{'id':k,'values':[x for x in v]} for k, v in groups]
         return lines
     
-    @api.multi
+    
     def generate_report(self):
         #payslip_ids = self.get_payslip()
         if (not self.env.user.company_id.logo):
@@ -58,7 +59,7 @@ class TurnoverReport(models.TransientModel):
 
 
 
-    @api.multi
+    
     def action_print_turnover_report(self):
         ctx = dict(self.env.context) or {}
         workbook = xlwt.Workbook()
