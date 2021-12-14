@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_turnoverpdf">
+	
+<!--    -->
+   <!-- <t t-call="pos_profit.report_sale_profit">-->
+    <!--<t t-call="web.external_layout_standard">-->
+   <t t-call="web.html_container">
+    <t t-call="web.internal_layout">
+     <t t-foreach="docs" t-as="o">
+        <div class="page">
+            <br/><br/><br/><br/>
+            <div class="text-center">
+                <h2>Chiffre D'affaire</h2>
+		
+            </div>
+	    
+            <!-- Orderlines -->
+            
+            
+		    <t t-set="product" t-value="o.get_lines()"/>
+		        
+            <table  class="table table-bordered" style="page-break-inside: avoid">
+                <thead class="thead-light" style="page-break-inside: avoid"><tr>
+                    <th>Réference Interne</th>
+                    <th>Produit</th>
+                    <th>Quantité disponible</th>
+                    <th>Prix de vente</th>
+                    <th>Valeur</th>
+                    
+                </tr></thead>
+                <tbody style="page-break-inside: avoid">
+		
+	         <t t-foreach="product" t-as='products'>
+		        <tr t-foreach="products.values" t-as='product' style="page-break-inside: avoid">
+                    <td>
+                        <t t-esc="product.get('rfc')"/>
+                    </td>
+                    <t t-if="product.get('id').attribute_value_ids">                
+                        <td><t t-esc="product.get('id').name" />( <t t-esc="product.get('id').attribute_value_ids.mapped('name')"/>)</td>
+                        <td class='text-center'>
+                            <t t-esc="'{0:,.0f}'.format(product.get('qty'))" />
+                        </td>
+                        <td><t t-esc="'{0:,.0f}'.format(product.get('id').lst_price)" /></td>
+                        <td><t t-esc="'{0:,.0f}'.format(product.get('id').lst_price * product.get('qty'))" /></td>
+                    </t>
+                    <t t-if="not product.get('id').attribute_value_ids">
+                        <td><t t-esc="product.get('id').name" /></td>
+                        <td class='text-center'>
+                            <t t-esc="'{0:,.0f}'.format(product.get('qty'))" />
+                        </td>
+                        <td><t t-esc="'{0:,.0f}'.format(product.get('id').list_price)" /></td>
+                        <td><t t-esc="'{0:,.0f}'.format(product.get('id').list_price * product.get('qty'))" /></td>
+		            </t>
+		        </tr>
+            </t>
+		 </tbody>
+        </table>
+    </div>
+</t>
+</t>
+</t>
+</template>
+</data>
+</openerp>
