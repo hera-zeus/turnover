@@ -17,6 +17,7 @@
     this module allows you to have the turnover of your company in excel and pdf file
 """,
     'author' : 'Merveille ZEBAZE',
+    'images': ['static/description/icon.png'],
     'website' : 'http://merveillezebaze.pythonanywhere.com',
     'depends': ['stock'],
     "maintainers": ["Merveille ZEBAZE"],
