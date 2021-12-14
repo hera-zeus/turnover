@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        
-    <!--<record id="sale_profit_report" model="ir.actions.report">
-        <field name="name">Rapport des benefices</field>
-        <field name="model">pos.profit.wizard</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">pos_profit.report_saleprofit</field>
-    </record>-->
-
-     
 
 <report id="print_turnover_pdf"
             model="turnover.report"

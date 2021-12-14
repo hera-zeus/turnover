@@ -2,10 +2,6 @@
 <openerp>
 <data>
 <template id="report_turnoverpdf">
-	
-<!--    -->
-   <!-- <t t-call="pos_profit.report_sale_profit">-->
-    <!--<t t-call="web.external_layout_standard">-->
    <t t-call="web.html_container">
     <t t-call="web.internal_layout">
      <t t-foreach="docs" t-as="o">

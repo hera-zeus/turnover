@@ -2,33 +2,25 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2021 Normalis Consulting (Merveille ZEBAZE) 
-#    (<http://normalis.consulting>).
+#    Copyright (C) 2021 Merveille ZEBAZE
+#    (<http://merveillezebaze.pythonanywhere.com>).
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
 #
 ##############################################################################
 {
     'name': 'Turnover Report ',
-    'version': '0.1',
+    "version": "11.0.1.0.0",
     'category': 'Warehouse',
-    'summary': 'Turnover Report XLS',
+    "summary": "Allows you to have the turnover of your company in excel and pdf file",
     'license':'AGPL-3',
     'description': """
-    Back Dated Stock Take Report allows to print stock position corresponding to a specific date in the past.
+    this module allows you to have the turnover of your company in excel and pdf file
 """,
-    'author' : 'Normalis Consulting (Merveille ZEBAZE) ',
-    'website' : 'http://normalis.consulting',
+    'author' : 'Merveille ZEBAZE',
+    'website' : 'http://merveillezebaze.pythonanywhere.com',
     'depends': ['stock'],
-    #'images': ['static/description/banner.jpg'],
+    "maintainers": ["Merveille ZEBAZE"],
+    "license": "AGPL-3",
     'data': [
         'wizard/print_turnover_report_view.xml',
         'wizard/print_turnover_pdf.xml',

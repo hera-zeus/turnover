@@ -2,18 +2,9 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2021 Normalis Consulting (Merveille ZEBAZE) 
-#    (<http://normalis.consulting>).
+#    Copyright (C) 2021 Merveille ZEBAZE
+#    (<http://merveillezebaze.pythonanywhere.com>).
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
 #
 ##############################################################################
 from odoo import api, fields, models, _
@@ -39,7 +30,6 @@ class TurnoverReport(models.TransientModel):
     def get_lines(self):
 
         ctx = dict(self.env.context) or {}
-        #ctx.update({'to_date': wizard.inventory_date})
         product_objs = self.env['product.product'].search([], order='name')
         lines=[]
         for product in product_objs:
@@ -78,8 +68,6 @@ class TurnoverReport(models.TransientModel):
         row = 2
         for wizard in self:
             report_head = 'Rapport du chiffre d\'affaire '
-            #if wizard.inventory_date:
-             #   report_head += ' (' + wizard.inventory_date + ')'
             worksheet.write_merge(0, 0, 0, 2, report_head, xlwt.easyxf('font:height 300; align: vertical center; align: horiz center;pattern: pattern solid, fore_color black; font: color white; font:bold True;' "borders: top thin,bottom thin"))
             worksheet.write(1, 0, _('Reference Interne'), column_heading_style) 
             worksheet.write(1, 1, _('Produit'), column_heading_style) 
@@ -92,7 +80,7 @@ class TurnoverReport(models.TransientModel):
             worksheet.col(2).width = 5000
             worksheet.row(0).height = 500
             
-            #ctx.update({'to_date': wizard.inventory_date})
+            
             product_objs = self.env['product.product'].search([], order='name')
             for product in product_objs:
                 #if product.qty_available > 0:
